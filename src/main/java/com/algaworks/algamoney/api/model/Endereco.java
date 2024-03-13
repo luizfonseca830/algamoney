@@ -1,4 +1,4 @@
-package com.algaworks.algamoney.api.model.embeddable;
+package com.algaworks.algamoney.api.model;
 
 import javax.persistence.Embeddable;
 

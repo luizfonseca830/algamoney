@@ -5,6 +5,7 @@ import com.algaworks.algamoney.api.service.PessoaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class PessoaResource {
         return pessoaService.buscarPelocodigo(codigo);
     }
     @PostMapping
-    public ResponseEntity<Pessoa> criar(@Valid @RequestBody Pessoa pessoa) {
-        return pessoaService.criar(pessoa);
+    public ResponseEntity<Pessoa> criar(@Valid @RequestBody Pessoa pessoa, HttpServletResponse response) {
+        return pessoaService.criar(pessoa, response);
     }
 }

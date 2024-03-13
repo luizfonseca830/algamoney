@@ -1,7 +1,5 @@
 package com.algaworks.algamoney.api.model;
 
-import com.algaworks.algamoney.api.model.embeddable.Endereco;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
