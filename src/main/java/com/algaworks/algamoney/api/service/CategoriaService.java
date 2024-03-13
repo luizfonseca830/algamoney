@@ -18,18 +18,18 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
 
-    public List<Categoria> listar(){
+    public List<Categoria> listar() {
         return categoriaRepository.findAll();
     }
 
-    public ResponseEntity<Categoria> criar(Categoria categoria){
+    public ResponseEntity<Categoria> criar(Categoria categoria) {
         Categoria categoriaSalva = categoriaRepository.save(categoria);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}")
                 .buildAndExpand(categoriaSalva.getCodigo()).toUri();
         return ResponseEntity.created(uri).body(categoriaSalva);
     }
 
-    public ResponseEntity<Categoria> buscarPeloCodigo(Long codigo){
+    public ResponseEntity<Categoria> buscarPeloCodigo(Long codigo) {
         Categoria categoria = categoriaRepository.findById(codigo).orElse(null);
         if (categoria == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

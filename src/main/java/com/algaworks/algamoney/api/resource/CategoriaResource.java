@@ -5,7 +5,7 @@ import com.algaworks.algamoney.api.service.CategoriaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,7 +29,7 @@ public class CategoriaResource {
     }
 
     @PostMapping
-    public ResponseEntity<Categoria> criar(@RequestBody Categoria categoria, HttpServletResponse response) {
+    public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria) {
         return categoriaService.criar(categoria);
     }
 }
