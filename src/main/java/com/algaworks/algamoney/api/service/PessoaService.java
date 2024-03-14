@@ -39,4 +39,8 @@ public class PessoaService {
         publisher.publishEvent(new RecursoCriadoEvent(this, response, pessoa.getCodigo()));
         return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
     }
+
+    public void remover(Long codigo){
+        pessoaRepository.deleteById(codigo);
+    }
 }
